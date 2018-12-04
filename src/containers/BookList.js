@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import { addDummyBook } from '../redux/actions';
 import BookListItem from '../components/BookListItem';
 
 const BOOKS_URL = 'http://localhost:4730/books';
@@ -21,9 +23,10 @@ class BookList extends Component {
     return (
       <Fragment>
         <h3>Book List:</h3>
+        <button onClick={this.props.addDummyBook}>Add Dummy Book</button>
         <ul>
           {
-            this.state.books.map((book, index) => {
+            this.props.books.map((book, index) => {
               return (
                 <li key={index}>
                   <BookListItem {...book}/>
@@ -37,4 +40,18 @@ class BookList extends Component {
   }
 }
 
-export default BookList;
+const mapStateToProps = (state) => {
+  return {
+    books: state.books
+  };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addDummyBook: () => {
+      return dispatch(addDummyBook());
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookList);
