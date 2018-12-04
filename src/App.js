@@ -10,7 +10,7 @@ class App extends Component {
       <div>
         <Name />
         <NameRaw />
-        <Counter />
+        <Counter initialValue={10} />
       </div>
     );
   }
