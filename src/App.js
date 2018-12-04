@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NameRaw from './components/NameRaw';
 import Name from './components/Name';
+import Counter from './components/Counter';
 import './App.css';
 
 class App extends Component {
@@ -9,6 +10,7 @@ class App extends Component {
       <div>
         <Name />
         <NameRaw />
+        <Counter />
       </div>
     );
   }
