@@ -1,16 +1,20 @@
 import React, { Component, Fragment } from 'react';
 import BookListItem from '../components/BookListItem';
 
+const BOOKS_URL = 'http://localhost:4730/books';
+
 class BookList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: [
-        { title: 'A' },
-        { title: 'B' },
-        { title: 'C' }
-      ]
+      books: []
     }
+  }
+
+  componentDidMount() {
+    fetch(BOOKS_URL)
+      .then(response => response.json())
+      .then(books => this.setState({books}));
   }
 
   render() {
