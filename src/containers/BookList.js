@@ -1,22 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { addDummyBook } from '../redux/actions';
+import { addDummyBook, fetchBooks } from '../redux/actions';
 import BookListItem from '../components/BookListItem';
 
-const BOOKS_URL = 'http://localhost:4730/books';
-
 class BookList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      books: []
-    }
-  }
-
   componentDidMount() {
-    fetch(BOOKS_URL)
-      .then(response => response.json())
-      .then(books => this.setState({books}));
+    this.props.fetchBooks();
   }
 
   render() {
@@ -24,6 +13,7 @@ class BookList extends Component {
       <Fragment>
         <h3>Book List:</h3>
         <button onClick={this.props.addDummyBook}>Add Dummy Book</button>
+        <div>{ this.props.loading ? 'Loading Books...' : null}</div>
         <ul>
           {
             this.props.books.map((book, index) => {
@@ -40,18 +30,14 @@ class BookList extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    books: state.books
-  };
-}
+const mapStateToProps = (state) => ({
+  books: state.books,
+  loading: state.loading
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addDummyBook: () => {
-      return dispatch(addDummyBook());
-    }
-  }
-}
+const mapDispatchToProps = {
+  addDummyBook,
+  fetchBooks
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookList);
