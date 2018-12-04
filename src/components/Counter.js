@@ -11,11 +11,18 @@ class Counter extends Component {
     this.setState({ count: newCount });
   }
 
+  decrementCount() {
+    const newCount = this.state.count - 1;
+    this.setState({ count: newCount });
+  }
+
   render() {
     return (
-      <button onClick={this.incrementCount.bind(this)}>
+      <div>
+        <button onClick={this.decrementCount.bind(this)}>-</button>
         {this.state.count}
-      </button>
+        <button onClick={this.incrementCount.bind(this)}>+</button>
+      </div>
     );
   }
 }
