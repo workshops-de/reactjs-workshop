@@ -10,8 +10,16 @@ function requestBooks() {
   return { type: types.REQUEST_BOOKS };
 }
 
+function requestBook() {
+  return { type: types.REQUEST_BOOK };
+}
+
 function receiveBooks(books) {
   return { type: types.RECEIVE_BOOKS, books };
+}
+
+function receiveBook(book) {
+  return { type: types.RECEIVE_BOOK, book };
 }
 
 export function fetchBooks() {
@@ -22,5 +30,16 @@ export function fetchBooks() {
     return fetch(BOOKS_URL)
       .then(response => response.json())
       .then(books => dispatch(receiveBooks(books)));
+  }
+}
+
+export function fetchBook(id) {
+  return dispatch => {
+
+    dispatch(requestBook());
+
+    return fetch(`${BOOKS_URL}/${id}`)
+      .then(response => response.json())
+      .then(book => dispatch(receiveBook(book)));
   }
 }

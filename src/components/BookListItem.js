@@ -1,11 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const BookListItem = ({title, subtitle, author}) => {
+const BookListItem = ({title, subtitle, author, isbn}) => {
   return (
     <div>
-      <div><strong>{title}</strong></div>
+      <div>
+        <strong>
+          <Link to={`/books/${isbn}`}>{title}</Link>
+        </strong>
+      </div>
       <div>{subtitle}</div>
       <div><i>{author}</i></div>
+      <div>ISBN: {isbn}</div>
     </div>
   );
 };

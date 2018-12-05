@@ -2,7 +2,9 @@ import types from './constants';
 
 const INITIAL_STATE = {
   books : [],
-  loading: false
+  bookDetail: null,
+  loading: false,
+  loadingDetail: false
 };
 
 export default function bookMonkeyApp (state = INITIAL_STATE, action) {
@@ -22,6 +24,17 @@ export default function bookMonkeyApp (state = INITIAL_STATE, action) {
         ...state,
         books: action.books,
         loading: false
+      }
+    case types.REQUEST_BOOK:
+      return {
+        ...state,
+        loadingDetail: true
+      }
+    case types.RECEIVE_BOOK:
+      return {
+        ...state,
+        bookDetail: action.book,
+        loadingDetail: false
       }
     default:
       return state;
