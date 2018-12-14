@@ -8,7 +8,7 @@ const INITIAL_STATE = {
   errors: {}
 };
 
-export default function booksReducer(state = INITIAL_STATE, action) {
+export default function booksReducer(state = INITIAL_STATE, action = {}) {
   switch (action.type) {
 
     case types.ADD_DUMMY:
