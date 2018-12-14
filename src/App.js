@@ -4,7 +4,8 @@ import NameRaw from './components/NameRaw';
 import Name from './components/Name';
 import Counter from './components/Counter';
 import BookList from './containers/BookList';
-import BookDetail from './components/BookDetail';
+import BookDetails from './containers/BookDetails';
+import BookEdit from './containers/BookEdit';
 
 class App extends Component {
   render() {
@@ -19,7 +20,8 @@ class App extends Component {
         </nav>
         <Route exact path="/counter" render={() => <Counter initialValue={10} />} />
         <Route exact path="/book-list" component={BookList} />
-        <Route path="/books/:id" component={BookDetail} />
+        <Route exact path="/books/:isbn" component={BookDetails} />
+        <Route exact path="/books/:isbn/edit" component={BookEdit} />
       </div>
     );
   }

@@ -14,6 +14,7 @@ class BookList extends Component {
         <h3>Book List:</h3>
         <button onClick={this.props.addDummyBook}>Add Dummy Book</button>
         <div>{ this.props.loading ? 'Loading Books...' : null}</div>
+        <div>{ this.props.error ? 'Could not load books.' : null}</div>
         <ul>
           {
             this.props.books.map((book, index) => {
@@ -32,7 +33,8 @@ class BookList extends Component {
 
 const mapStateToProps = (state) => ({
   books: state.books,
-  loading: state.loading
+  loading: state.loading.books,
+  error: state.errors.books
 });
 
 const mapDispatchToProps = {
