@@ -5,4 +5,5 @@ export default PropTypes.shape({
   title: PropTypes.string,
   subtitle: PropTypes.string,
   abstract: PropTypes.string,
+  author: PropTypes.string,
 });
