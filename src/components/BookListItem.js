@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const BookListItem = ({title, subtitle, author, isbn}) => {
   return (
@@ -15,5 +16,12 @@ const BookListItem = ({title, subtitle, author, isbn}) => {
     </div>
   );
 };
+
+BookListItem.propTypes = {
+  isbn: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  author: PropTypes.string,
+}
 
 export default BookListItem;

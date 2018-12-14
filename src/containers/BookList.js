@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import BookShape from '../shapes/book';
 import { addDummyBook, fetchBooks } from '../redux/actions';
 import BookListItem from '../components/BookListItem';
 
@@ -30,6 +32,20 @@ class BookList extends Component {
     );
   }
 }
+
+BookList.propTypes = {
+  books: PropTypes.arrayOf(BookShape),
+  loading: PropTypes.bool,
+  error: PropTypes.object,
+  addDummyBook: PropTypes.func.isRequired,
+  fetchBooks: PropTypes.func.isRequired,
+};
+
+BookList.defaultProps = {
+  books: [],
+  loading: false,
+  error: null,
+};
 
 const mapStateToProps = (state) => ({
   books: state.books,

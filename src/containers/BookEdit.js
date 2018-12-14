@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import BookShape from '../shapes/book';
 import { fetchBookEdit, updateBook, persistBook } from '../redux/actions';
 
 class BookEdit extends Component {
@@ -69,6 +71,21 @@ class BookEdit extends Component {
     );
   }
 }
+
+BookEdit.propTypes = {
+  book: BookShape,
+  loading: PropTypes.bool,
+  error: PropTypes.object,
+  fetchBook: PropTypes.func.isRequired,
+  updateBook: PropTypes.func.isRequired,
+  persistBook: PropTypes.func.isRequired,
+};
+
+BookEdit.defaultProps = {
+  book: null,
+  loading: false,
+  error: null,
+};
 
 const mapStateToProps = (state) => ({
   book: state.bookEdit,
