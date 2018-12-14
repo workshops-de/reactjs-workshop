@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`A BookListItem component renders a book item correctly 1`] = `
+<div>
+  <div>
+    <strong>
+      <a
+        href="/books/978-0-20163-361-0"
+        onClick={[Function]}
+      >
+        Design Patterns
+      </a>
+    </strong>
+  </div>
+  <div>
+    Elements of Reusable Object-Oriented Software
+  </div>
+  <div>
+    <i>
+      Erich Gamma / Richard Helm / Ralph E. Johnson / John Vlissides
+    </i>
+  </div>
+  <div>
+    ISBN: 
+    978-0-20163-361-0
+  </div>
+</div>
+`;
