@@ -40,7 +40,7 @@ class BookEdit extends Component {
                 <input
                   name="title"
                   type="text"
-                  value={book.title}
+                  value={book.title || ''}
                   onChange={this.onChangeInput}/>
               </label>
               <br />
@@ -49,7 +49,7 @@ class BookEdit extends Component {
                 <input
                   name="subtitle"
                   type="text"
-                  value={book.subtitle}
+                  value={book.subtitle || ''}
                   onChange={this.onChangeInput}/>
               </label>
               <br />
@@ -58,7 +58,7 @@ class BookEdit extends Component {
                 <textarea
                   name="abstract"
                   type="text"
-                  value={book.abstract}
+                  value={book.abstract || ''}
                   onChange={this.onChangeInput}/>
               </label>
               <br />
