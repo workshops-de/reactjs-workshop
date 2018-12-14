@@ -20,7 +20,7 @@ class BookNew extends Component {
       <Fragment>
         { loading ? <div>Creating book...</div> : null }
         { error ? <div>Could not create book.</div> : null }
-        <BookFormRedux onSubmit={this.onSubmit} cancelPath='/' />
+        <BookFormRedux onSubmit={this.onSubmit} cancelPath='/' initialValues={{}} />
       </Fragment>
     );
   }

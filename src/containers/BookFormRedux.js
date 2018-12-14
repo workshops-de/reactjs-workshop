@@ -36,5 +36,6 @@ BookFormRedux.propTypes = {
 };
 
 export default reduxForm({
-  form : 'book' // a unique name for this form
+  form : 'book', // a unique name for this form
+  enableReinitialize: true
 })(BookFormRedux);
