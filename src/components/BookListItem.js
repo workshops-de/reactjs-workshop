@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import BookShape from '../shapes/book';
 
-const BookListItem = ({title, subtitle, author, isbn}) => {
+const BookListItem = ({data}) => {
+  const {title, subtitle, author, isbn} = data;
   return (
     <div>
       <div>
@@ -18,10 +19,7 @@ const BookListItem = ({title, subtitle, author, isbn}) => {
 };
 
 BookListItem.propTypes = {
-  isbn: PropTypes.string.isRequired,
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  author: PropTypes.string,
+  data: BookShape
 }
 
 export default BookListItem;

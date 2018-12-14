@@ -88,9 +88,9 @@ BookEdit.defaultProps = {
 };
 
 const mapStateToProps = (state) => ({
-  book: state.bookEdit,
-  loading: state.loadingDetail,
-  error: state.errors.bookEdit
+  book: state.books.bookEdit,
+  loading: state.books.loading.bookEdit,
+  error: state.books.errors.bookEdit
 });
 
 const mapDispatchToProps = {

@@ -1,20 +1,20 @@
 import types from './constants';
 
 const INITIAL_STATE = {
-  books : [],
+  bookList: [],
   bookDetails: null,
   bookEdit: null,
   loading: {},
   errors: {}
 };
 
-export default function bookMonkeyApp (state = INITIAL_STATE, action) {
+export default function booksReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
 
     case types.ADD_DUMMY:
       return {
         ...state,
-        books: state.books.concat({title: 'DUMMY BOOK'})
+        bookList: state.bookList.concat({title: 'DUMMY BOOK'})
       };
     case types.UPDATE_BOOK:
       return {
@@ -23,33 +23,33 @@ export default function bookMonkeyApp (state = INITIAL_STATE, action) {
       };
 
     // fetchBooks
-    case types.FETCH_BOOKS_PENDING:
+    case types.FETCH_BOOK_LIST_PENDING:
       return {
         ...state,
         loading: {
           ...state.loading,
-          books: true
+          bookList: true
         }
       }
-    case types.FETCH_BOOKS_SUCCESS:
+    case types.FETCH_BOOK_LIST_SUCCESS:
       return {
         ...state,
-        books: action.books,
+        bookList: action.books,
         loading: {
           ...state.loading,
-          books: false
+          bookList: false
         }
       }
-    case types.FETCH_BOOKS_ERROR:
+    case types.FETCH_BOOK_LIST_ERROR:
       return {
         ...state,
         loading: {
           ...state.loading,
-          books: false
+          bookList: false
         },
         errors: {
-          ...state.error,
-          books: action.error
+          ...state.errors,
+          bookList: action.error
         }
       }
 
@@ -80,7 +80,7 @@ export default function bookMonkeyApp (state = INITIAL_STATE, action) {
           bookDetails: false
         },
         errors: {
-          ...state.error,
+          ...state.errors,
           bookDetails: action.error
         }
       }
@@ -112,7 +112,7 @@ export default function bookMonkeyApp (state = INITIAL_STATE, action) {
           bookEdit: false
         },
         errors: {
-          ...state.error,
+          ...state.errors,
           bookEdit: action.error
         }
       }
@@ -139,11 +139,36 @@ export default function bookMonkeyApp (state = INITIAL_STATE, action) {
       return {
         ...state,
         errors: {
-          ...state.error,
+          ...state.errors,
           persistBook: action.error
         }
       }
 
+    // createBook
+    case types.CREATE_BOOK_PENDING:
+      return {
+        ...state,
+        loading: {
+          ...state.loading,
+          createBook: true
+        }
+      }
+    case types.CREATE_BOOK_SUCCESS:
+      return {
+        ...state,
+        loading: {
+          ...state.loading,
+          createBook: false
+        }
+      }
+    case types.CREATE_BOOK_ERROR:
+      return {
+        ...state,
+        errors: {
+          ...state.errors,
+          createBook: action.error
+        }
+      }
 
     default:
       return state;

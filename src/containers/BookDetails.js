@@ -49,9 +49,9 @@ BookDetails.defaultProps = {
 };
 
 const mapStateToProps = (state) => ({
-  book: state.bookDetails,
-  loading: state.loadingDetail,
-  error: state.errors.bookDetails
+  book: state.books.bookDetails,
+  loading: state.books.loadingDetail,
+  error: state.books.errors.bookDetails
 });
 
 const mapDispatchToProps = {

@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { BrowserRouter as Router } from 'react-router-dom';
-import thunkMiddleware from 'redux-thunk'
+import thunkMiddleware from 'redux-thunk';
+import { reducer as formReducer } from 'redux-form';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import bookMonkeyApp from './redux/reducer';
+import booksReducer from './redux/reducer';
 
 const store = createStore(
-  bookMonkeyApp,
+  combineReducers({
+    books: booksReducer,
+    form: formReducer,
+  }),
   applyMiddleware(thunkMiddleware)
 );
 

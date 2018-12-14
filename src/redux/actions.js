@@ -10,19 +10,19 @@ export function updateBook(book) {
   return { type: types.UPDATE_BOOK, book };
 }
 
-// fetchBooks
-function fetchBooksPending() { return { type: types.FETCH_BOOKS_PENDING } }
-function fetchBooksSuccess(books) { return { type: types.FETCH_BOOKS_SUCCESS, books } }
-function fetchBooksError(error) { return { type: types.FETCH_BOOKS_ERROR, error } }
-export function fetchBooks() {
+// fetchBookList
+function fetchBookListPending() { return { type: types.FETCH_BOOK_LIST_PENDING } }
+function fetchBookListSuccess(books) { return { type: types.FETCH_BOOK_LIST_SUCCESS, books } }
+function fetchBookListError(error) { return { type: types.FETCH_BOOK_LIST_ERROR, error } }
+export function fetchBookList() {
   return dispatch => {
 
-    dispatch(fetchBooksPending());
+    dispatch(fetchBookListPending());
 
     return fetch(BOOKS_URL)
       .then(response => response.json())
-      .then(books => dispatch(fetchBooksSuccess(books)))
-      .catch(error => dispatch(fetchBooksError(error)));
+      .then(books => dispatch(fetchBookListSuccess(books)))
+      .catch(error => dispatch(fetchBookListError(error)));
   }
 }
 
@@ -79,5 +79,31 @@ export function persistBook(book) {
       .then(response => response.json())
       .then((book) => dispatch(persistBookSuccess(book)))
       .catch((error) => dispatch(persistBookError(error)));
+  }
+}
+
+// createBook
+function createBookPending() { return { type: types.CREATE_BOOK_PENDING } }
+function createBookSuccess(book) { return { type: types.CREATE_BOOK_SUCCESS, book } }
+function createBookError(error) { return { type: types.CREATE_BOOK_ERROR, error } }
+export function createBook(book) {
+  return dispatch => {
+
+    dispatch(createBookPending());
+
+    const request = new Request(BOOKS_URL, {
+      headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        method : 'POST',
+        body   : JSON.stringify(book)
+      }
+    );
+
+    return fetch(request)
+      .then(response => response.json())
+      .then((book) => dispatch(createBookSuccess(book)))
+      .catch((error) => dispatch(createBookError(error)));
   }
 }
