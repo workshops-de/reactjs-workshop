@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import BookShape from '../shapes/book';
 import { fetchBookDetails } from '../redux/actions';
 
-class BookDetails extends Component {
+export class BookDetails extends Component {
   componentDidMount() {
     const { match } = this.props;
     this.props.fetchBook(match.params.isbn);
