@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import BookShape from '../shapes/book';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import BookShape from '../shapes/book'
 
-const BookListItem = ({data}) => {
-  const {title, subtitle, author, isbn} = data;
+const BookListItem = ({ data }) => {
+  const { title, subtitle, author, isbn } = data
   return (
     <div>
       <div>
@@ -12,14 +12,16 @@ const BookListItem = ({data}) => {
         </strong>
       </div>
       <div>{subtitle}</div>
-      <div><i>{author}</i></div>
+      <div>
+        <i>{author}</i>
+      </div>
       <div>ISBN: {isbn}</div>
     </div>
-  );
-};
-
-BookListItem.propTypes = {
-  data: BookShape
+  )
 }
 
-export default BookListItem;
+BookListItem.propTypes = {
+  data: BookShape,
+}
+
+export default BookListItem

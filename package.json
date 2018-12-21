@@ -30,6 +30,13 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "prettier": "^1.15.3",
     "react-test-renderer": "^16.6.3"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "semi": false,
+    "useTabs": false
   }
 }

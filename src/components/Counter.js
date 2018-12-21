@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class Counter extends Component {
   constructor(props) {
-    super(props);
-    this.state = { count: props.initialValue };
+    super(props)
+    this.state = { count: props.initialValue }
   }
 
   incrementCount() {
-    const newCount = this.state.count + 1;
-    this.setState({ count: newCount });
+    const newCount = this.state.count + 1
+    this.setState({ count: newCount })
   }
 
   decrementCount() {
-    const newCount = this.state.count - 1;
-    this.setState({ count: newCount });
+    const newCount = this.state.count - 1
+    this.setState({ count: newCount })
   }
 
   render() {
@@ -24,16 +24,16 @@ class Counter extends Component {
         {this.state.count}
         <button onClick={this.incrementCount.bind(this)}>+</button>
       </div>
-    );
+    )
   }
 }
 
 Counter.propTypes = {
-  initialValue: PropTypes.number
+  initialValue: PropTypes.number,
 }
 
 Counter.defaultProps = {
-  initialValue: 50
+  initialValue: 50,
 }
 
-export default Counter;
+export default Counter
