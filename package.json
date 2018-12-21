@@ -30,6 +30,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "prop-types": "^15.6.2",
     "react-test-renderer": "^16.6.3"
   }
 }
