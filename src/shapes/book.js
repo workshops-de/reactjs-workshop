@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 export default PropTypes.shape({
   isbn: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
@@ -6,4 +6,4 @@ export default PropTypes.shape({
   subtitle: PropTypes.string,
   abstract: PropTypes.string,
   author: PropTypes.string,
-});
+})
