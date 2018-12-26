@@ -8,16 +8,10 @@ class BookNew extends Component {
   onSubmit = book => {
     this.props
       .createBook(book)
-      .then(() => this.props.history.push(this.bookDetailPath(book.isbn)))
+      .then(() => this.props.history.push(`/books/${book.isbn}`))
   }
 
-  onCancel = (book) => {
-    this.props.history.push('/');
-  }
-
-  bookDetailPath = (isbn) => {
-    return `/books/${isbn}`;
-  }
+  onCancel = (book) => this.props.history.push('/books')
 
   render() {
     const { loading, error } = this.props

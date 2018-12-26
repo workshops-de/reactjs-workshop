@@ -25,6 +25,10 @@ class BookEdit extends Component {
       .then(() => this.props.history.push(this.bookDetailPath()))
   }
 
+  onCancel = () => {
+    this.props.history.push(this.bookDetailPath());
+  }
+
   bookDetailPath = () => `/books/${this.props.book.isbn}`
 
   render() {
@@ -35,8 +39,8 @@ class BookEdit extends Component {
       <BookForm
         book={book}
         onSubmit={this.onSubmit}
-        onChangeInput={this.onChangeInput}
-        bookDetailPath={this.bookDetailPath} />
+        onCancel={this.onCancel}
+        onChangeInput={this.onChangeInput} />
     )
 
     return (
