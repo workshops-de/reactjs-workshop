@@ -1,5 +1,6 @@
-// @TODO: PropTypes
 import React from 'react'
+import PropTypes from 'prop-types'
+import BookShape from '../shapes/book'
 import { Link } from 'react-router-dom'
 
 const BookForm = ({ onSubmit, onChangeInput, book, bookDetailPath }) => {
@@ -39,6 +40,13 @@ const BookForm = ({ onSubmit, onChangeInput, book, bookDetailPath }) => {
 			<Link to={bookDetailPath}>Cancel</Link>
 		</form>
 	)
+}
+
+BookForm.propTypes = {
+	onSubmit: PropTypes.func.isRequired,
+	onChangeInput: PropTypes.func,
+	book: BookShape,
+	bookDetailPath: PropTypes.string
 }
 
 export default BookForm

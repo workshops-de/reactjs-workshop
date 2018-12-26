@@ -1,6 +1,5 @@
-// @TODO: PropTypes
-
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 const Book = ({ isbn, title, subtitle, abstract }) => {
@@ -23,6 +22,13 @@ const Book = ({ isbn, title, subtitle, abstract }) => {
 			</div>
 		</Fragment>
 	)
+}
+
+Book.propTypes = {
+	isbn: PropTypes.string.isRequired,
+	title: PropTypes.string,
+	subtitle: PropTypes.string,
+	abstract: PropTypes.string
 }
 
 export default Book
