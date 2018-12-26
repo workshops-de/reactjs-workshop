@@ -1,5 +1,5 @@
 import { updateBook } from '../redux/actions'
-import types from '../redux/constants'
+import * as types from '../redux/constants'
 
 describe('actions', function() {
   it('should create an action with UPDATE_BOOK type and book as payload', () => {
