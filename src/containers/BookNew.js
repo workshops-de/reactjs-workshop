@@ -11,21 +11,25 @@ class BookNew extends Component {
       .then(() => this.props.history.push(this.bookDetailPath(book.isbn)))
   }
 
-  bookDetailPath = isbn => {
-    return `/books/${isbn}`
+  onCancel = (book) => {
+    this.props.history.push('/');
+  }
+
+  bookDetailPath = (isbn) => {
+    return `/books/${isbn}`;
   }
 
   render() {
     const { loading, error } = this.props
     return (
       <Fragment>
-        {loading ? <div>Creating book...</div> : null}
-        {error ? <div>Could not create book.</div> : null}
+        { loading ? <div>Creating book...</div> : null }
+        { error ? <div>Could not create book.</div> : null }
         <BookFormRedux
           onSubmit={this.onSubmit}
-          cancelPath="/"
-          initialValues={{}}
-        />
+          onCancel={this.onCancel}
+          cancelPath='/'
+          initialValues={{}} />
       </Fragment>
     )
   }
