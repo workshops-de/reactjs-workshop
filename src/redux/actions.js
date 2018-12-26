@@ -1,4 +1,4 @@
-import types from './constants'
+import * as types from './constants'
 
 const BOOKS_URL = 'http://localhost:4730/books'
 

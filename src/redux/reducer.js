@@ -1,4 +1,4 @@
-import types from './constants'
+import * as types from './constants'
 
 const INITIAL_STATE = {
   bookList: [],
