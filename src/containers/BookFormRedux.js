@@ -1,8 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { Field, reduxForm } from 'redux-form'
 
-const Input = ({ input, label, type, meta: { touched, error, warning } }) => (
+const Input = ({
+  input,
+  label,
+  type,
+  meta: { touched, error, warning },
+}) => (
   <div>
     <label>{label}</label>
     <div>
@@ -10,9 +16,14 @@ const Input = ({ input, label, type, meta: { touched, error, warning } }) => (
       {touched && (error && <span style={{ color: 'red' }}>{error}</span>)}
     </div>
   </div>
-);
+)
 
-const TextArea = ({ input, label, type, meta: { touched, error, warning } }) => (
+const TextArea = ({
+  input,
+  label,
+  type,
+  meta: { touched, error, warning },
+}) => (
   <div>
     <label>{label}</label>
     <div>
@@ -20,19 +31,22 @@ const TextArea = ({ input, label, type, meta: { touched, error, warning } }) => 
       {touched && (error && <span style={{ color: 'red' }}>{error}</span>)}
     </div>
   </div>
-);
+)
 
 const validate = values => {
   const errors = {}
   if (values.isbn === null || values.isbn === undefined || values.isbn === '') {
-    errors.isbn = 'ISBN ungültig';
+    errors.isbn = 'ISBN ungültig'
   }
-  if (values.title === null || values.title === undefined || values.title === '') {
-    errors.title = 'Title ungültig';
+  if (
+    values.title === null ||
+    values.title === undefined ||
+    values.title === ''
+  ) {
+    errors.title = 'Title ungültig'
   }
   return errors
 }
-
 
 const BookFormRedux = ({ handleSubmit, onCancel }) => (
   <div>
@@ -53,7 +67,7 @@ BookFormRedux.propTypes = {
 };
 
 export default reduxForm({
-  form : 'book', // a unique name for this form
+  form: 'book', // a unique name for this form
   enableReinitialize: true,
-  validate
-})(BookFormRedux);
+  validate,
+})(BookFormRedux)
