@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import BookShape from '../shapes/book'
 import { fetchBookDetails } from '../redux/actions'
+import Book from '../components/Book';
 
 export class BookDetails extends Component {
   componentDidMount() {
@@ -13,32 +13,15 @@ export class BookDetails extends Component {
 
   render() {
     const { loading, book, match, error } = this.props
+    const errorMessage = <div>Could not load book with isbn {match.params.isbn}</div>
+    const loadingMessage = <div>Loading book...</div>
+
     return (
       <Fragment>
         <h3>Book Details:</h3>
-        {loading ? <div>Loading book...</div> : null}
-        {error ? (
-          <div>Could not load book with isbn {match.params.isbn}</div>
-        ) : null}
-        {book ? (
-          <Fragment>
-            <img
-              src={`http://covers.openlibrary.org/b/isbn/${book.isbn}-L.jpg`}
-              alt={book.title}
-            />
-            <div>
-              <strong>{book.title}</strong>
-            </div>
-            <div>{book.subtitle}</div>
-            <div>{book.abstract}</div>
-            <div>
-              <i>{book.isbn}</i>
-            </div>
-            <div>
-              <Link to={`/books/${book.isbn}/edit`}>Edit this Book</Link>
-            </div>
-          </Fragment>
-        ) : null}
+        {loading ? loadingMessage : null}
+        {error ? errorMessage : null}
+        {book ? <Book {...book} /> : null}
       </Fragment>
     )
   }
