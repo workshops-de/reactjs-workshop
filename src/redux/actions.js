@@ -6,8 +6,8 @@ export function addDummyBook() {
   return { type: types.ADD_DUMMY }
 }
 
-export function updateBook(book) {
-  return { type: types.UPDATE_BOOK, book }
+export function updateBook(field, value) {
+  return { type: types.UPDATE_BOOK, field, value }
 }
 
 // fetchBookList

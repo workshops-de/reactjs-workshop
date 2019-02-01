@@ -18,7 +18,7 @@ describe('booksReducer', function() {
   it('should update book on UPDATE_BOOK', () => {
     const stateBefore = { bookEdit: { title: 'A' } }
     const stateAfter = { bookEdit: { title: 'A Book' } }
-    const updateAction = updateBook({ title: 'A Book' })
+    const updateAction = updateBook('title', 'A Book')
 
     const state = booksReducer(stateBefore, updateAction)
     expect(state).toEqual(stateAfter)
