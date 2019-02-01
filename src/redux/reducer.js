@@ -16,7 +16,8 @@ export default function booksReducer(state = INITIAL_STATE, action = {}) {
         bookList: [...state.bookList, { title: 'DUMMY BOOK' }],
       }
     case types.UPDATE_BOOK:
-      return { ...state, bookEdit: action.book }
+      const bookEdit = { ...state.bookEdit, [action.field]: action.value };
+      return { ...state, bookEdit }
 
     // fetchBookList
     case types.FETCH_BOOK_LIST_PENDING:

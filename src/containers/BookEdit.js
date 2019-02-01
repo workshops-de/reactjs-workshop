@@ -11,11 +11,7 @@ class BookEdit extends Component {
   }
 
   onChangeInput = event => {
-    const newBook = {
-      ...this.props.book,
-      [event.target.name]: event.target.value,
-    }
-    this.props.updateBook(newBook)
+    this.props.updateBook(event.target.name, event.target.value);
   }
 
   onSubmit = event => {
