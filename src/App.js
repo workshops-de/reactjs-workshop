@@ -15,7 +15,8 @@ class App extends Component {
         <Name />
         <NameRaw />
         <nav>
-          <Link to="/">Home</Link>|<Link to="/counter">Counter</Link>|
+          <Link to="/">Home</Link>|
+          <Link to="/counter">Counter</Link>|
           <Link to="/books">Book List</Link>|
           <Link to="/books/new">Create new Book</Link>
         </nav>

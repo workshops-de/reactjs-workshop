@@ -18,7 +18,7 @@ export default function booksReducer(state = INITIAL_STATE, action = {}) {
     case types.UPDATE_BOOK:
       return { ...state, bookEdit: action.book }
 
-    // fetchBooks
+    // fetchBookList
     case types.FETCH_BOOK_LIST_PENDING:
       return {
         ...state,
